@@ -1,0 +1,43 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+public class clock extends javax.swing.JFrame{
+	private static JLabel lblNewLabel_1;
+	private static TimeZone cl;
+
+	public static void main(String[] args) {
+		
+	   
+		Timer myTimer;
+		myTimer = new Timer();
+
+		myTimer.schedule(new TimerTask() {
+			public void run() {
+				 timerTick();
+			}
+		}, 0, 1000);
+		
+	}
+	
+	private static void timerTick() {
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("วันที่ dd เดือน MM ปี yyyy HH:mm:ss");
+		String formattedDate = df.format(c.getTime());
+		System.out.println("Time now : " + formattedDate);
+		
+		 
+	}
+	private void initialize() {
+	
+	}
+}

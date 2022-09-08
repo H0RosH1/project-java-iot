@@ -1,0 +1,103 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Date;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.util.Calendar;
+import javax.swing.text.*;
+
+public class testtime  extends javax.swing.JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3724736126424369969L;
+	/**
+	 * 
+	 */
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	
+	public static void main(String[] args) {
+		Timer myTimer;
+		myTimer = new Timer();
+
+		myTimer.schedule(new TimerTask() {
+			public void run() {
+				 timerTick();
+			}
+		}, 0, 100);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					testtime window = new testtime();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+	private javax.swing.JLabel lblNewLabel;
+
+	/**
+	 * Create the application.
+	 */
+	public testtime() {
+		initialize();
+		clock();
+	}
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 684, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel();
+		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(68, 76, 540, 108);
+		frame.getContentPane().add(lblNewLabel);
+		
+	}
+	public void clock() {
+		Thread th = new Thread() {
+			
+
+			public void run() {
+				try {
+					for(;;) {
+						Calendar c = Calendar.getInstance();
+						SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+						String formattedDate = df.format(c.getTime());
+						System.out.println("Time now : " + formattedDate);
+						lblNewLabel.setText(formattedDate);
+					}
+				}
+				catch(Exception ex) {
+					
+				}
+			}
+		};
+		th.start();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	
+	
+}

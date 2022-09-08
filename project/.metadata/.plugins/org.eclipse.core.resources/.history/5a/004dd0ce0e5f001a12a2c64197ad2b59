@@ -1,0 +1,27 @@
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.Label;
+
+import javax.swing.JFrame;
+
+
+public class time extends Tutorial {
+	Label text;
+	
+	public time() {
+		Tutorial Test = new Tutorial();
+		JFrame f = new JFrame("Digital clock");
+		f.setSize(220, 100);
+		f.setLocationRelativeTo(null);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		text = new Label();
+		text.setFont(new Font("Timenewroman",Font.BOLD, 50));
+		text.setText(Test.getTime(sec));
+		f.add(text);
+		f.setVisible(true);
+		
+	}
+	
+
+	
+}

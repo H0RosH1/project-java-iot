@@ -1,0 +1,90 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+
+
+public class testtime  extends javax.swing.JFrame {
+
+	/**
+	 * 
+	 */
+
+	/**
+	 * 
+	 */
+	private JFrame frame;
+	protected JLabel lblNewLabel;
+
+	/**
+	 * Launch the application.
+	 */
+	
+	public static void main(String[] args) {
+		
+		Timer myTimer;
+		myTimer = new Timer();
+
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				timerTick();
+				try {
+					testtime window = new testtime();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+			private void timerTick() {
+				Calendar c = Calendar.getInstance();
+				SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				String formattedDate = df.format(c.getTime());
+				System.out.println("Time now : " + formattedDate);
+				
+			}
+		});
+		
+	}
+
+
+	/**
+	 * Create the application.
+	 */
+	public testtime() {
+		initialize();
+		
+	}
+	private void initialize() {
+		clock c = new clock();
+		frame = new JFrame();
+		frame.setBounds(100, 100, 684, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel();
+		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(68, 76, 540, 108);
+		frame.getContentPane().add(lblNewLabel);
+		
+	}
+	
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	
+	
+}

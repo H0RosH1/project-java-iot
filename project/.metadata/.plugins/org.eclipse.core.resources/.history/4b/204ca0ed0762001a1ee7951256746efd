@@ -1,0 +1,59 @@
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+import com.fazecast.jSerialComm.*;
+
+public class testWrite { // เปลี่ยนเป็นชื่อคลาสที่ตั้งไว้
+
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+
+String portNum = "";
+var kb = new Scanner(System.in);
+System.out.print("INPUT COM PORT : ");
+portNum = kb.nextLine();
+System.out.print("CONNECT TO "+portNum);
+
+SerialPort port = SerialPort.getCommPort("COM3");
+port.setComPortParameters(9600,8,1,0);
+port.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING,0,0);
+System.out.println("Open port: " + port.openPort());
+try {
+Thread.sleep(100);
+} catch (InterruptedException e) {
+e.printStackTrace();
+}
+
+
+
+while(true) {
+
+Scanner kb2 = new Scanner(System.in);
+System.out.print("INPUT : ");
+String msg = kb2.nextLine();
+byte[] data = msg.getBytes();
+port.writeBytes(data, data.length);
+
+Scanner in = new Scanner(port.getInputStream());
+PrintWriter out = new PrintWriter(port.getOutputStream(),true);
+
+out.println('a');
+out.flush();
+System.out.println("> w");
+String smsg = "";
+char[] ms;
+System.out.print("return: ");
+while (in.hasNextLine()) {
+//smsg = in.nextLine();
+// System.out.println(in.nextLine());
+//ms = smsg.toCharArray();;
+// for(int n=0;n<smsg.length();n++) {
+// System.out.print(ms[n]);}
+}
+
+
+}
+
+}
+
+}

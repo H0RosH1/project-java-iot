@@ -1,0 +1,45 @@
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+import org.jfree.data.time.TimeSeriesCollection;
+
+import com.fazecast.jSerialComm.*;
+public class readSerial { // เปลี่ยนเป็นชื่อคลาสที่ตั้งไว้
+private static Scanner kb;
+private static float read;
+
+public static void main(String[] args) throws InterruptedException {
+	
+// TODO Auto-generated method stub
+SensorGraph PM = new SensorGraph();
+PM.portNAME();
+String portNum = "";
+
+System.out.print("CONNECT TO "+"COM3");
+SerialPort port = SerialPort.getCommPort(PM.portNAME() );
+port.setComPortParameters(9600,8,1,0);
+port.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING,0, 0);
+System.out.println("Open port: " + port.openPort());
+try {
+Thread.sleep(1000);
+} catch (Exception e){
+
+e.printStackTrace();
+}
+while(true) {
+	Thread.sleep(1000);
+Scanner in = new Scanner(port.getInputStream());
+PrintWriter out = new PrintWriter(port.getOutputStream(),true);
+while (in.hasNextLine()) {
+Thread.sleep(2000);
+System.out.println("return: " +in.next());
+read = in.nextFloat();
+;}
+}
+}
+
+public float read() {
+	 
+	return read;
+}
+}

@@ -1,0 +1,35 @@
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+import org.jfree.util.PublicCloneable;
+
+import com.fazecast.jSerialComm.SerialPort;
+
+public class projects {
+	private float arduino;
+
+		private void getarduino() throws InterruptedException {
+			SerialPort port = SerialPort.getCommPort("COM3");
+			port.setComPortParameters(9600,8,1,0);
+			port.setComPortTimeouts(SerialPort.TIMEOUT_NONBLOCKING,0, 0);
+			System.out.println("Open port: " + port.openPort());
+			try {
+				Thread.sleep(1000);
+				} catch (Exception e){
+
+				e.printStackTrace();
+				}
+				while(true) {
+				Thread.sleep(1000);
+				Scanner in = new Scanner(port.getInputStream());
+				PrintWriter out = new PrintWriter(port.getOutputStream(),true);
+				while (in.hasNextLine()) {
+				Thread.sleep(2000);
+				System.out.println("return: " +in.next());
+				;}
+				}
+
+		}
+	
+
+}

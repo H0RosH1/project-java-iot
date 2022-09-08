@@ -1,0 +1,55 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+
+public class clock extends javax.swing.JFrame{
+	private static JLabel lblNewLabel_1;
+
+	public static void main(String[] args) {
+		JFrame frame = new JFrame();
+		frame.setBounds(100, 100, 684, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		lblNewLabel_1 = new JLabel("formattedDate");
+		lblNewLabel_1.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setBounds(58, 51, 322, 92);
+
+	   
+		Timer myTimer;
+		myTimer = new Timer();
+
+		myTimer.schedule(new TimerTask() {
+			public void run() {
+				 timerTick();
+			}
+		}, 0, 100);
+		
+	}
+	
+	private static void timerTick() {
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String formattedDate = df.format(c.getTime());
+		System.out.println("Time now : " + formattedDate);
+		
+		
+		
+	}
+	public clock() {
+		getContentPane().setLayout(null);
+		
+	}
+	private void initialize() {
+	
+	}
+}

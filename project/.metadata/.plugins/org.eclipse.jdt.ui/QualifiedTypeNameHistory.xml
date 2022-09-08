@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.awt.Dimension"/>
+    <fullyQualifiedTypeName name="java.awt.geom.Arc2D"/>
+    <fullyQualifiedTypeName name="org.jfree.data.xy.DefaultXYDataset"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.axis.NumberAxis"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.plot.XYPlot"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.renderer.xy.XYLineAndShapeRenderer"/>
+    <fullyQualifiedTypeName name="com.sun.jdi.Bootstrap"/>
+    <fullyQualifiedTypeName name="javax.management.timer.Timer"/>
+    <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
+    <fullyQualifiedTypeName name="javax.swing.JLabel"/>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="javax.swing.text.SimpleAttributeSet"/>
+    <fullyQualifiedTypeName name="clock"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="java.awt.print.Printable"/>
+    <fullyQualifiedTypeName name="java.lang.Override"/>
+    <fullyQualifiedTypeName name="javax.swing.JFrame"/>
+    <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
+    <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="javax.swing.JPanel"/>
+    <fullyQualifiedTypeName name="org.jfree.data.xy.XYSeries"/>
+    <fullyQualifiedTypeName name="org.jfree.data.xy.XYSeriesCollection"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.ChartFactory"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.JFreeChart"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.ChartPanel"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+    <fullyQualifiedTypeName name="java.awt.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.fazecast.jSerialComm.SerialPortMessageListener"/>
+    <fullyQualifiedTypeName name="org.jfree.chart.axis.Timeline"/>
+    <fullyQualifiedTypeName name="java.sql.SQLDataException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.fazecast.jSerialComm.SerialPortTimeoutException"/>
+    <fullyQualifiedTypeName name="org.jfree.data.general.Series"/>
+    <fullyQualifiedTypeName name="com.fazecast.jSerialComm.SerialPort"/>
+    <fullyQualifiedTypeName name="org.jfree.data.time.TimeSeriesCollection"/>
+    <fullyQualifiedTypeName name="readSerial"/>
+    <fullyQualifiedTypeName name="Tutorial"/>
+</qualifiedTypeNameHistroy>

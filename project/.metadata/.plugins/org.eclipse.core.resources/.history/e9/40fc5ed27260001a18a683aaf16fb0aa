@@ -1,0 +1,123 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.Font;
+import java.awt.print.Printable;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+import javax.swing.SwingConstants;
+
+public class clock extends javax.swing.JFrame implements Runnable {
+	int hour ,second,minute;
+	int day,month,year;
+	String timestr,yearstr;
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				
+					clock window = new clock();
+					window.frame.setVisible(true);
+				
+			
+		
+	}
+		});
+	}
+	/**
+	 * Create the application.
+	 */
+	public clock() {
+		Thread t= new Thread(this);
+		t.start();
+		initialize();
+		
+	}
+	private javax.swing.JLabel time;
+	private javax.swing.JLabel date;
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				Calendar c=Calendar.getInstance();
+				hour=c.get(Calendar.HOUR_OF_DAY);
+				if(hour>12)
+					hour=hour-12;
+				minute=c.get(Calendar.MINUTE);
+				second=c.get(Calendar.SECOND);
+				year=c.get(Calendar.YEAR);
+				month=c.get(Calendar.MONTH);
+				day=c.get(Calendar.DAY_OF_MONTH);
+				SimpleDateFormat sdf=new SimpleDateFormat("hh:mm:ss a");
+				SimpleDateFormat df=new SimpleDateFormat("MM:dd:yyyy");
+				Date dat=c.getTime();
+				timestr = sdf.format(dat);
+				yearstr = df.format(dat);
+				time.setText(timestr);
+				date.setText(yearstr);
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel time = new JLabel("");
+		time.setHorizontalAlignment(SwingConstants.CENTER);
+		time.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		time.setBounds(81, 70, 258, 82);
+		frame.getContentPane().add(time);
+		
+		JLabel date = new JLabel("");
+		date.setHorizontalAlignment(SwingConstants.CENTER);
+		date.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		date.setBounds(81, 163, 258, 82);
+		frame.getContentPane().add(date);
+	}
+
+	@Override
+	public void run() {
+		while(true) {
+			try {
+				Calendar c=Calendar.getInstance();
+				hour=c.get(Calendar.HOUR_OF_DAY);
+				if(hour>12)
+					hour=hour-12;
+				minute=c.get(Calendar.MINUTE);
+				second=c.get(Calendar.SECOND);
+				year=c.get(Calendar.YEAR);
+				month=c.get(Calendar.MONTH);
+				day=c.get(Calendar.DAY_OF_MONTH);
+				SimpleDateFormat sdf=new SimpleDateFormat("hh:mm:ss a");
+				SimpleDateFormat df=new SimpleDateFormat("MM:dd:yyyy");
+				Date dat=c.getTime();
+				timestr = sdf.format(dat);
+				yearstr = df.format(dat);
+				time.setText(timestr);
+				date.setText(yearstr);
+				
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+}

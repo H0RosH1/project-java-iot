@@ -1,0 +1,98 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.util.GregorianCalendar;
+import java.util.Date;
+import javax.swing.SwingConstants;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
+import java.util.Calendar;
+import javax.swing.text.*;
+
+public class testtime  extends JFrame{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					testtime window = new testtime();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public testtime() {
+		initialize();
+		clock();
+	}
+	public void clock() {
+		Thread th = new Thread() {
+			
+
+			public void run () {
+				try {
+					for(;;) {
+						Calendar c1 = new GregorianCalendar();
+						int day = c1.get(Calendar.DAY_OF_MONTH);
+						int month = c1.get(Calendar.MONTH);
+						int year = c1.get(Calendar.YEAR);
+						
+						int secpnd = c1.get(Calendar.SECOND);
+						int min = c1.get(Calendar.MINUTE);
+						int hour = c1.get(Calendar.HOUR);
+						int am_pm = c1.get(Calendar.AM_PM);
+						
+						String d_n="";
+						if(am_pm==1) 
+							d_n = "PM";
+						
+						else 
+							d_n="AM";
+					
+						sleep(1000);
+					}
+				}
+				catch(Exception ex) {
+					
+				}
+			}
+		};
+		th.start();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 684, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBorder(new LineBorder(new Color(0, 0, 0), 3));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(68, 76, 540, 108);
+		frame.getContentPane().add(lblNewLabel);
+	}
+}
